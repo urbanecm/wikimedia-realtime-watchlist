@@ -120,8 +120,8 @@ def index():
 
     page = StalkedPage(
         user_id=user.id,
-        title=request.form.get('title'),
-        wiki=request.form.get('wiki').replace(' ', '_')
+        title=request.form.get('title').replace(' ', '_'),
+        wiki=request.form.get('wiki')
     )
     db.session.add(page)
     db.session.commit()
