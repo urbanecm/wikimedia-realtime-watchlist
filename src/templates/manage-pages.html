@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <h1>Manage pages</h1>
+
+    {% if pages|length > 0 %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>wiki</th>
+                <th>title</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for page in pages %}
+            <tr>
+                <td>{{ page.wiki }}</td>
+                <td>{{ page.title }}</td>
+                <td></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>
+        You do not stalk any pages yet. Time to add some?
+    </p>
+    {% endif %}
+
+    <h2>Add a page</h2>
+    <form method="post">
+        <label for="wiki">Wiki</label>
+        <input class="form-control" type="text" name="wiki" id="wiki" placeholder="enwiki">
+
+        <label for="title">Page title</label>
+        <input class="form-control" type="text" name="title" id="title" placeholder="Wikipedia:Administrator_noticeboard">
+
+        <input class="form-control btn btn-primary btn-success" type="submit" value="Submit">
+    </form>
+</div>
+{% endblock %}

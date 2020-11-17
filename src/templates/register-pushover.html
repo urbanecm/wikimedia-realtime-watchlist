@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <h1>Register pushover</h1>
+
+    <p>
+        To be able to use this tool, you need to have a working <a href="https://pushover.net">PushOver account</a>. If you already have one,
+        please enter your PushOver key here.
+    </p>
+
+    <form method="post">
+        <label for="key">Pushover key</label>
+        <input class="form-control" type="text" name="key" id="key">
+
+        <input class="form-control btn btn-primary btn-success" type="submit" value="Submit">
+    </form>
+</div>
+{% endblock %}

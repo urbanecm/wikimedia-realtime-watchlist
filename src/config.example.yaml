@@ -1,0 +1,7 @@
+MESSAGES_DIR: ../messages
+SECRET_KEY: something
+SQLALCHEMY_DATABASE_URI: mysql://root:password@localhost/search_filters?charset=utf8mb4
+CONSUMER_KEY: b85ce6a71a2830235974fe8c2e8482ab # localhost credentials
+CONSUMER_SECRET: b41f029b7f83e9afd8044009c1677d40a5ef6776 # localhost credentials
+OAUTH_MWURI: https://meta.wikimedia.org/w
+PUSHOVER_KEY: secret
