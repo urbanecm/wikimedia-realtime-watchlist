@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: realtime-watchlist.worker
+  namespace: tool-realtime-watchlist
+  labels:
+    name: realtime-watchlist.worker
+    # The toolforge=tool label will cause $HOME and other paths to be mounted from Toolforge
+    toolforge: tool
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: realtime-watchlist.worker
+      toolforge: tool
+  template:
+    metadata:
+      labels:
+        name: realtime-watchlist.worker
+        toolforge: tool
+    spec:
+      containers:
+        - name: worker
+          image: docker-registry.tools.wmflabs.org/toolforge-python37-sssd-base:latest
+          command: [ "/data/project/realtime-watchlist/bin/worker.sh" ]
+          workingDir: /data/project/realtime-watchlist
+          env:
+            - name: HOME
+              value: /data/project/realtime-watchlist
+          imagePullPolicy: Always
