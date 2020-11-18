@@ -161,8 +161,10 @@ def cli_stalk_pages():
                             notification = 'User %s made an edit at "%s"@%s, edit summary "%s"' % (change['user'], change['title'], change['wiki'], change['comment'])
                             user = User.query.filter_by(id=page.user_id).first()
                             user.get_pushover_client().send_message(notification)
-        except Exception as e:
-            raise e
+        except StopIteration:
+            continue
+        except TypeError:
+            continue
 
 if __name__ == "__main__":
     app.run(debug=True, threaded=True)
